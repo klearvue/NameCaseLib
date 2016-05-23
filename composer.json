@@ -1,5 +1,5 @@
 {
-    "name": "yadelivery/name-case-lib",
+    "name": "klearvue/namecaselib",
     "type": "library",
     "description": "Library for inflecting Russian and Ukrainian Names. Fork of http://namecaselib.com/",
     "keywords": [
