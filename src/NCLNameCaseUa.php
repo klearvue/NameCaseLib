@@ -262,7 +262,7 @@ class NCLNameCaseUa extends NCLNameCaseCore
                 {
                     $osnova = NCLStr::substr($osnova, 0, NCLStr::strlen($osnova) - 2) . 'о' . NCLStr::substr($osnova, -1, 1);
                 }
-                $this->wordForms($osnova, array('а', 'ові', 'а', 'ом', 'ові', 'е'));
+                $this->wordForms($osnova, array('а', 'у', 'а', 'ом', 'ові', 'е'));
                 $this->Rule(202);
                 return true;
             }
@@ -308,7 +308,7 @@ class NCLNameCaseUa extends NCLNameCaseCore
                 //Слова що закінчуються на ок
                 if ($this->Last(2) == 'ок' and $this->Last(3) != 'оок')
                 {
-                    $this->wordForms($this->workingWord, array('ка', 'кові', 'ка', 'ком', 'кові', 'че'), 2);
+                    $this->wordForms($this->workingWord, array('ка', 'ку', 'ка', 'ком', 'кові', 'че'), 2);
                     $this->Rule(301);
                     return true;
                 }
@@ -328,7 +328,7 @@ class NCLNameCaseUa extends NCLNameCaseCore
                 }
                 else
                 {
-                    $this->wordForms($osnova, array($osLast . 'а', $osLast . 'ові', $osLast . 'а', $osLast . 'ом', $osLast . 'ові', $this->inverse2($osLast) . 'е'), 1);
+                    $this->wordForms($osnova, array($osLast . 'а', $osLast . 'у', $osLast . 'а', $osLast . 'ом', $osLast . 'ові', $this->inverse2($osLast) . 'е'), 1);
                     $this->Rule(304);
                     return true;
                 }
@@ -336,7 +336,7 @@ class NCLNameCaseUa extends NCLNameCaseCore
             if ($group == 2)
             {
                 //Мішана група
-                $this->wordForms($osnova, array('а', 'еві', 'а', 'ем', 'еві', 'е'));
+                $this->wordForms($osnova, array('а', 'у', 'а', 'ем', 'еві', 'е'));
                 $this->Rule(305);
                 return true;
             }
@@ -347,40 +347,40 @@ class NCLNameCaseUa extends NCLNameCaseCore
                 if ($this->Last(2) == 'ей' and $this->in($this->Last(3, 1), $this->gubni))
                 {
                     $osnova = NCLStr::substr($this->workingWord, 0, NCLStr::strlen($this->workingWord) - 2) . '’';
-                    $this->wordForms($osnova, array('я', 'єві', 'я', 'єм', 'єві', 'ю'));
+                    $this->wordForms($osnova, array('я', 'ю', 'я', 'єм', 'єві', 'ю'));
                     $this->Rule(306);
                     return true;
                 }
                 elseif ($this->Last(1) == 'й' or $BeforeLast == 'і')
                 {
-                    $this->wordForms($this->workingWord, array('я', 'єві', 'я', 'єм', 'єві', 'ю'), 1);
+                    $this->wordForms($this->workingWord, array('я', 'ю', 'я', 'єм', 'єві', 'ю'), 1);
                     $this->Rule(307);
                     return true;
                 }
                 //Швець
                 elseif ($this->workingWord == 'швець')
                 {
-                    $this->wordForms($this->workingWord, array('евця', 'евцеві', 'евця', 'евцем', 'евцеві', 'евцю'), 4);
+                    $this->wordForms($this->workingWord, array('веця', 'вецю', 'веця', 'вецем', 'вецеві', 'вецю'), 4);
                     $this->Rule(308);
                     return true;
                 }
                 //Слова що закінчуються на ець
                 elseif ($this->Last(3) == 'ець')
                 {
-                    $this->wordForms($this->workingWord, array('ця', 'цеві', 'ця', 'цем', 'цеві', 'цю'), 3);
+                    $this->wordForms($this->workingWord, array('ця', 'цю', 'ця', 'цем', 'цеві', 'цю'), 3);
                     $this->Rule(309);
                     return true;
                 }
                 //Слова що закінчуються на єць яць
                 elseif ($this->in($this->Last(3), array('єць', 'яць')))
                 {
-                    $this->wordForms($this->workingWord, array('йця', 'йцеві', 'йця', 'йцем', 'йцеві', 'йцю'), 3);
+                    $this->wordForms($this->workingWord, array('йця', 'йцю', 'йця', 'йцем', 'йцеві', 'йцю'), 3);
                     $this->Rule(310);
                     return true;
                 }
                 else
                 {
-                    $this->wordForms($osnova, array('я', 'еві', 'я', 'ем', 'еві', 'ю'));
+                    $this->wordForms($osnova, array('я', 'у', 'я', 'ем', 'еві', 'ю'));
                     $this->Rule(311);
                     return true;
                 }
