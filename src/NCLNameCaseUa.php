@@ -357,6 +357,12 @@ class NCLNameCaseUa extends NCLNameCaseCore
                     $this->Rule(307);
                     return true;
                 }
+		elseif ($this->Last(2) == 'ль')
+                {
+                    $this->wordForms($this->workingWord, array('я', 'ю', 'я', 'eм', 'eві', 'ю'), 1);
+                    $this->Rule(312);
+                    return true;
+                }
                 //Швець
                 elseif ($this->workingWord == 'швець')
                 {
